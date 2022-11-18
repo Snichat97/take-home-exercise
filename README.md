@@ -1,3 +1,25 @@
+# My Solution
+## Key feature :
+1. Validations in place.
+2. Dynamic Update of the employee list as soon as a new employee is submitted.
+
+## Screenshots
+
+## Join US! created to a button :
+
+<img width="1440" alt="Screen Shot 2022-11-17 at 5 03 34 PM" src="https://user-images.githubusercontent.com/34672064/202592662-33d6a25c-e1ff-4d06-bfa8-2f882214e706.png">
+
+## Error Prompts and Form :
+
+<img width="1440" alt="Screen Shot 2022-11-17 at 5 05 22 PM" src="https://user-images.githubusercontent.com/34672064/202592856-6f302e24-f0dc-4330-a42b-ba4ca38a4e58.png">
+
+
+## Final Look :
+
+<img width="1440" alt="Screen Shot 2022-11-17 at 5 05 41 PM" src="https://user-images.githubusercontent.com/34672064/202592902-82f6b4f9-6485-4b2e-ba3a-6d6eb0dc53c8.png">
+
+
+
 # Codelit Engineering Take-Home Exercise
 
 💫 Welcome to the Codelit take-home coding exercise! 🎉
