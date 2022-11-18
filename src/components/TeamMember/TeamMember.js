@@ -2,8 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './TeamMember.css';
 import CodelitEmptyAvatar from '../../assets/codelit_empty_avatar.svg';
+import NewMemberForm from '../NewMemberForm';
 
 class TeamMember extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: false
+    };
+  }
+  
   static propTypes = {
     name: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
@@ -20,6 +28,7 @@ class TeamMember extends React.PureComponent {
 
   render() {
     return (
+      <div>
       <div className="container">
         <header>
           <div className="avatar-container">
@@ -30,7 +39,12 @@ class TeamMember extends React.PureComponent {
             />
           </div>
           <h2 className="title">{this.props.title}</h2>
-          <h1 className="name">{this.props.name}</h1>
+
+          {(this.props.title=="New Teammate")?
+          <button><h1 className="name" onClick={this.props.newTeamMember}>{this.props.name}</h1></button>
+          :<h1 className="name">{this.props.name}</h1>
+          }
+          
         </header>
         <div className="body">{this.props.story}</div>
         <footer style={{ backgroundColor: this.props.favoriteColor }}>
@@ -45,6 +59,7 @@ class TeamMember extends React.PureComponent {
             <div className="one-third-flex-box">GRIT</div>
           </div>
         </footer>
+      </div>
       </div>
     );
   }

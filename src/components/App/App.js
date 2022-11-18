@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import TeamMember from '../TeamMember';
+import NewMemberForm from '../NewMemberForm';
 import './App.css';
 
 class App extends React.Component {
@@ -8,8 +9,17 @@ class App extends React.Component {
     super(props);
     this.state = {
       team: [],
-      loading: true
+      loading: true,
+      visible: false
     };
+    this.newTeamMember=this.newTeamMember.bind(this);
+    this.setData=this.setData.bind(this);
+  }
+
+  async newTeamMember() {
+    const flip = !this.state.visible;    
+    this.setState({visible :flip})
+    console.log("Doneeeeeee", flip)
   }
 
   async componentDidMount() {
@@ -22,6 +32,12 @@ class App extends React.Component {
         await this.fetchInitialData();
       }, 500);
     }
+  }
+
+  async setData(data) {
+    this.setState({
+      team: data,
+    });
   }
 
   async fetchInitialData() {
@@ -39,8 +55,9 @@ class App extends React.Component {
 
     return (
       <div className="app">
+      {this.state.visible?<NewMemberForm newTeamMember={this.newTeamMember} setData={this.setData}/>:""}
         <div className="team-grid" />
-        {this.state.team.map(member => (
+        {this.state.team && this.state.team.map(member => (
           <TeamMember
             key={member.id}
             name={`${member.firstName} ${member.lastName}`}
@@ -51,7 +68,7 @@ class App extends React.Component {
           />
         ))}
         {/* Make this new team member link to your form! */}
-        <TeamMember id="new" name="Join us!" title="New Teammate" />
+        <TeamMember id="new" name="Join us!" title="New Teammate" newTeamMember={this.newTeamMember}/>
       </div>
     );
   }
